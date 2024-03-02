@@ -5,51 +5,15 @@ import { PORT } from "./config.js";
 import { mongoDb } from "./config.js";
 import mongoose from "mongoose";
 import { Book } from "./models/bookModel.js";
+import Bookroutes from "./routes/BookRoutes.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-// To post a new Book
-app.post("/books", async (req, res) => {
-  try {
-    const newBook = req.body;
-    const book = await Book.create(newBook);
-    return res.status(201).send({ book });
-  } catch (error) {
-    console.error("Error: ", error);
-    res.status(500).send("Error: " + error);
-  }
-});
-
-// to get all the books
-app.get("/books", async (req, res) => {
-  try {
-    const book = await Book.find({});
-    const count = book.length;
-    return res.status(200).send({
-      count,
-      book,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(404).send("No book found");
-  }
-});
-
-// To get a specific book using ID
-app.get("/books/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const book = await Book.findById(id);
-    if (!book) {
-      res.status(404).send("No book found");
-    }
-    return res.status(200).send(book);
-  } catch (error) {
-    console.error(error);
-    res.status(404).send("NO book found");
-  }
-});
+// middleware for routes
+app.use("/books", Bookroutes);
 
 mongoose
   .connect(mongoDb)
