@@ -8,10 +8,10 @@ import BackButton from "../components/BackButton";
 import { useSnackbar } from "notistack";
 
 const CreateBook = () => {
-  const [title, setTitle] = useState([]);
+  const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
-  const [author, setAuthor] = useState([]);
-  const [publishYear, setPublishYear] = useState([]);
+  const [author, setAuthor] = useState("");
+  const [publishYear, setPublishYear] = useState("");
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const saveBook = () => {
