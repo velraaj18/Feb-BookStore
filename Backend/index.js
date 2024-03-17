@@ -10,7 +10,7 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors("https://feb-book-store-client.vercel.app"));
 
 // middleware for routes
 app.use("/books", Bookroutes);

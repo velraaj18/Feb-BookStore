@@ -12,7 +12,7 @@ const GetBook = () => {
     //Only for fetchingdata useEffect
     setLoading(true);
     axios
-      .get(`http://localhost:8000/books/${id}`)
+      .get(`/books/${id}`)
       .then((res) => {
         setBook(res.data);
         setLoading(false);
