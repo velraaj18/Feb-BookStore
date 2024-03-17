@@ -6,7 +6,7 @@ import EditBook from "./Pages/EditBook";
 import GetBook from "./Pages/BookDetails";
 import DeleteBook from "./Pages/DeleteBook";
 
-axios.defaults.baseURL = "https://feb-book-store-client.vercel.app";
+axios.defaults.baseURL = "https://feb-book-store.vercel.app";
 
 const App = () => {
   return (
