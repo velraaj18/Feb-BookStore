@@ -5,6 +5,7 @@ import CreateBook from "./Pages/CreateBook";
 import EditBook from "./Pages/EditBook";
 import GetBook from "./Pages/BookDetails";
 import DeleteBook from "./Pages/DeleteBook";
+import axios from "axios";
 
 axios.defaults.baseURL = "https://feb-book-store.vercel.app";
 
